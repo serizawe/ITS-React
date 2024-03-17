@@ -15,7 +15,7 @@ const InternshipAnnouncements = () => {
     useEffect(() => {
         const fetchAnnouncements = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/internship-announcements");
+                const response = await axios.get(`http://localhost:5000/api/internship-announcements?studentId=${studentId}`);
                 setDataSource(response.data);
             } catch (error) {
                 console.error("Failed to fetch announcements:", error);
@@ -23,7 +23,8 @@ const InternshipAnnouncements = () => {
         };
 
         fetchAnnouncements();
-    }, []);
+    }, [dataSource]);
+
 
     const handleApplication = (record) => {
         setSelectedAnnouncement(record);
