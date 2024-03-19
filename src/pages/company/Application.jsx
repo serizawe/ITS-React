@@ -13,10 +13,7 @@ const Application = () => {
   const [dataSource, setDataSource] = useState([
 
   ]);
-
   const [tableData, setTableData] = useState([]);
-
-
   const [modalVisible, setModalVisible] = useState(false);
 
   const renderTooltipContent = (record) => {
@@ -232,7 +229,7 @@ const Application = () => {
       okType: "primary",
       onOk: () => {
         axios
-          .patch(`http://localhost:5000/api/internship-applications/${record.key}`, { status: "Waiting for supervisor approval" }) // Include the updated status in the request body
+          .patch(`http://localhost:5000/api/internship-applications/${record.key}`, { status: "Waiting for supervisor approval" }) 
           .then((response) => {
             console.log("Application approved successfully!");
             setTableData((prev) =>
